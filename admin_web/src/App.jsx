@@ -1,1 +1,1 @@
-
+// Admin panel main file (replace with code provided earlier)
