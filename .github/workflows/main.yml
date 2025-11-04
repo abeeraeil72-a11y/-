@@ -1,4 +1,4 @@
-name: ci - Create & Build Flutter App
+name: ci_create'build Flutter_app
 
 on:
   push:
@@ -7,13 +7,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu_22.04
 
     steps:
-      - name: checkout repo
+      - name: checkout_repo
         uses: actions/checkout@v4
 
-      - name: setup Flutter
+      - name: setup flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.6'
@@ -43,5 +43,5 @@ jobs:
       - name: upload web artifact
         uses: actions/upload-artifact@v4
         with:
-          name: shahidwarbah-web
+          name: shahidwarbah_web
           path: build/web
