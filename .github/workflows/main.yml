@@ -1,4 +1,4 @@
-appterrerter: ci_create'build Flutter_app
+name: CI - Create & Build Flutter App
 
 on:
   push:
@@ -7,41 +7,41 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu_22.04
+    runs-on: ubuntu-22.04
 
     steps:
-      - name: checkout_repo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: setup flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.6'
 
-      - name: ensure flutter project (create if missing)
+      - name: Ensure flutter project (create if missing)
         run: |
           if [ ! -d "android" ] || [ ! -d "web" ]; then
             flutter create -t app .
           fi
           ls -la
 
-      - name: install dependencies
+      - name: Install dependencies
         run: flutter pub get
 
-      - name: build Android APK (release)
+      - name: Build Android APK (release)
         run: flutter build apk --release
 
-      - name: build web
+      - name: Build web
         run: flutter build web
 
-      - name: upload APK artifact
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: shahidwarbah-apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
-      - name: upload web artifact
+      - name: Upload web artifact
         uses: actions/upload-artifact@v4
         with:
-          name: shahidwarbah_web
+          name: shahidwarbah-web
           path: build/web
