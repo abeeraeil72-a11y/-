@@ -1,4 +1,4 @@
-appterrerter: ci_create'build flutter_app
+appterrerter: ci_create'build Flutter_app
 
 on:
   push:
